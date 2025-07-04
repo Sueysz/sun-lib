@@ -24,7 +24,7 @@ export default [
             '@typescript-eslint': ts,
         },
         rules: {
-            'no-console': "error",
+            'no-console': ['error', { allow: ['warn', 'error'] }],
             'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
             'semi': ['error', 'always'],
             'quotes': ['error', 'single'],
