@@ -9,8 +9,12 @@
     "build": "tsc -b --verbose",
     "lint": "eslint './**/*.ts'"
   },
+  "repository": {
+  "type": "git",
+  "url": "git+https://github.com/Sueysz/sun-lib.git"
+  },
   "keywords": [],
-  "author": "",
+  "author": "sueysz",
   "license": "ISC",
   "type": "module",
   "description": "",
