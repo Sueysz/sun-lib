@@ -12,11 +12,11 @@ interface ErrorHandlingOptions {
  * @param options.errorMessage - Custom error message to return.
  * @param options.errorCode - HTTP status code to return (default: 500).
  * @param options.error - Custom error object to log.
- * 
+ *
  * @example
  * ```ts
  * import { errorHandling } from 'sun-lib';
- * 
+ *
  * app.get('/some-route', (req, res) => {
  *   try {
  *     // your logic here

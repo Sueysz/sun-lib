@@ -1,6 +1,6 @@
 {
   "name": "@sueys/sun-lib",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -28,5 +28,9 @@
     "express": "^5.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
-  }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
 }
