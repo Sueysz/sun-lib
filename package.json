@@ -1,6 +1,6 @@
 {
   "name": "@sueys/sun-lib",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -10,8 +10,8 @@
     "lint": "eslint './**/*.ts'"
   },
   "repository": {
-  "type": "git",
-  "url": "git+https://github.com/Sueysz/sun-lib.git"
+    "type": "git",
+    "url": "git+https://github.com/Sueysz/sun-lib.git"
   },
   "keywords": [],
   "author": "sueysz",
@@ -27,7 +27,8 @@
     "eslint": "^9.30.1",
     "express": "^5.1.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.36.0"
   },
   "files": [
     "dist",

@@ -1,15 +1,18 @@
 import type { Response } from 'express';
+import { isError, toError } from './errorUtils';
 
 interface ErrorHandlingOptions {
   errorMessage?: string;
   errorCode?: number;
-  error?: Error;
+  error?: unknown;
 }
 
 /**
+ * Log the error and send a JSON response with the error message and status code.
+ * The real error message will always be in the logs, while the message in the response can be overwritten with options.errorMessage.
  * @param res - The Express response object.
  * @param options - Options to customize the error message, status code, and error object.
- * @param options.errorMessage - Custom error message to return.
+ * @param options.errorMessage - Custom error message to return in the response.
  * @param options.errorCode - HTTP status code to return (default: 500).
  * @param options.error - Custom error object to log.
  *
@@ -34,11 +37,17 @@ export function errorHandling(
   res: Response,
   options: ErrorHandlingOptions = {},
 ): void {
+  let error: Error;
   const {
-    errorMessage = 'An error has occurred',
-    error = new Error(errorMessage),
+    errorMessage,
     errorCode = 500,
   } = options;
+
+  if (isError(options.error)) {
+    error = options.error;
+  } else {
+    error = toError(options.error);
+  }
 
   const errorTime = Date.now();
   console.error(JSON.stringify({
@@ -49,7 +58,7 @@ export function errorHandling(
 
   res.status(errorCode).json({
     success: false,
-    error: error.message,
+    error: errorMessage ?? error.message,
     errorTime,
   });
 }

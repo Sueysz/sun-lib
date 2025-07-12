@@ -1,9 +1,11 @@
 import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
 import ts from '@typescript-eslint/eslint-plugin';
 import parser from '@typescript-eslint/parser';
 
-export default [
+export default tseslint.config(
     js.configs.recommended,
+    tseslint.configs.recommended,
     {
         files: ['**/*.ts', '**/*.tsx'],
         languageOptions: {
@@ -37,4 +39,4 @@ export default [
             'eqeqeq': ['error', 'always'],
             },
     },
-];
+);
